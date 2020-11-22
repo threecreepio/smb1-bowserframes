@@ -1,0 +1,22 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "rimraf ./dist && parcel build index.html --public-url . --experimental-scope-hoisting",
+    "push-site": "npm run build && cd dist && bash -c 'rsync --delete -av ./* creep.io:3creepio/smb1/bowserframes'"
+  },
+  "bowserlists": [
+    "chrome 75"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "luxon": "^1.25.0",
+    "neverland": "^4.3.2",
+    "parcel-bundler": "^1.12.4",
+    "rimraf": "^3.0.2"
+  }
+}

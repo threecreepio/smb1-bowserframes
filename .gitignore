@@ -1,0 +1,5 @@
+/generate-data/screenshots
+/generate-data/valid-frames.json
+/site/.cache
+/site/dist
+node_modules
