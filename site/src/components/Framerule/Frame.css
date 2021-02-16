@@ -1,0 +1,10 @@
+.frame .image { position: relative; }
+.frame .frameslider { visibility: hidden; }
+.frameslider { position: absolute; top: 4px; width: 256px; }
+.frame:hover .frameslider { visibility: visible; }
+
+.frameinfo {
+    flex-grow: 1;
+    border-radius: 4px;
+    color: #777;
+}

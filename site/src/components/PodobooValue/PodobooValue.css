@@ -1,0 +1,26 @@
+.podoboo {
+    width: 48px;
+    padding: 8px 8px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.podoboo img {
+    display: block;
+    margin: 0 auto 6px;
+}
+
+.podoboo-easy {
+    background: rgb(0, 128, 0, 0.15);
+}
+.podoboo-impossible {
+    background: red;
+}
+.podoboo-hard {
+    background: rgb(255, 166, 0, 0.35);
+}

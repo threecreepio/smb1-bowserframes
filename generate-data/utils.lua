@@ -27,11 +27,21 @@ function prng_advance(seed)
     return nseed
 end
 
+function prng_advance_by(seed,n)
+    for i=1,n do
+        seed = prng_advance(seed)
+    end
+    return seed
+end
+
 prng_init_count = 42
 
-function prng_init()
+function prng_init(count)
+    if count == nil then
+        count = 37
+    end
     local seed = { 0xA5, 0, 0, 0, 0, 0, 0 }
-    for i=0,37,1 do
+    for i=0,count,1 do
         seed = prng_advance(seed)
     end
     return seed

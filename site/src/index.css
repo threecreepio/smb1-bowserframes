@@ -1,0 +1,11 @@
+select, input { width: 120px; }
+body {
+    max-width: 100%;
+    background: #333;
+    color: white;
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+}
+* { box-sizing: border-box; }
+
+.shameless a { color: white; }

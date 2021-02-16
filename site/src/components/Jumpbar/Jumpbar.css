@@ -1,0 +1,28 @@
+
+.jumpbar {
+    display: flex;
+    width: 100%;
+}
+.jumpbar > * {
+    flex-grow: 1;
+    width: 5px;
+    height: 8px;
+    background: black;
+}
+.jumpbar > .good {
+    background: green;
+}
+.jb-impossible > * { background: red !important; }
+.jb-bad .good { background: red; }
+.jb-ok .good { background: orange; }
+
+.jumpbar .selected:before {
+    content: " ";
+    display: block;
+    background: skyblue !important;
+    opacity: 0.5;
+    position: relative;
+    width: 200%;
+    top: 0;
+    height: 8px;
+}
