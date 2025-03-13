@@ -5,17 +5,17 @@ import Duration from 'luxon/src/duration'
 const bowserroomFrames = 437;
 
 // duration of an NES frame in milliseconds
-const frameMillis = 16.639263492063357;
+const frameMillis = 16.63926349135486;
 
 export const TimeEstimate = (props: { startingFrame: number, frame: number }) => {
     let endingFrame = props.frame + bowserroomFrames;
-    // figure out the exact millisecond time of the run
-    let millis = Math.ceil((endingFrame - props.startingFrame) * frameMillis);
-    // and convert to a friendly string
+    // figure out the exact second time of the run
+    let totalMillis = Math.round((endingFrame - props.startingFrame) * frameMillis);
+
     return (
         <div title="Estimated time assuming no lag frames, first frame axe grab with a standard bowser room." style={{ display: 'flex', justifyContent: 'space-between', alignContent: 'center' }}>
             <div>Run time</div>
-            <div>{Duration.fromMillis(millis).toFormat("m:ss.SSS")}</div>
+            <div>{Duration.fromMillis((totalMillis)).toFormat("m:ss.SSS")}</div>
         </div>
     );
 }
