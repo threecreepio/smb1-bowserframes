@@ -44,12 +44,12 @@ export function usePromise<T>(fn: () => Promise<T>, dependencies: any[]): [boole
 }
 
 // store a state value in localStorage to preserve it between page views
-export const useLocalState = (name, initialValue) => {
+export const useLocalState = (name, initialValue, format?: (v: any, initialValue: any) => any) => {
     const [value, setValue] = useState(localStorage[name] === undefined ? initialValue : JSON.parse(localStorage[name]));
     useEffect(() => {
         localStorage[name] = JSON.stringify(value);
     }, [value]);
-    return [value, setValue];
+    return [format ? format(value, initialValue) : value, setValue];
 }
 
 // get the value from an input field in an html change event

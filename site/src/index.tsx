@@ -27,11 +27,17 @@ const smbStartupMillis = 130.5;
 // first possible framerule to enter the game
 const startingFramerule = 9;
 
+function parseValue(v: any, fallback: any) {
+    const result = parseInt(v);
+    if (isNaN(result)) return fallback || 0;
+    return result;
+}
+
 const App = () => {
-    const [fr, setFr] = useLocalState("fr", 743); // 765
-    const [delay, setDelay] = useLocalState("delay", 11);
+    const [fr, setFr] = useLocalState("fr", 743, parseValue); // 765
+    const [delay, setDelay] = useLocalState("delay", 11, parseValue);
     const [page, setPage] = useState(0);
-    const [powerup, setPowerup] = useLocalState("pup", 0);
+    const [powerup, setPowerup] = useLocalState("pup", 0, parseValue);
     const [videoIndex, setVideoIndex] = useState(imagesPerFrame);
     
     // figure out which framerule we started the game on 
@@ -42,8 +48,8 @@ const App = () => {
     // the starting frame of the run
     let runStartedFrame = (startingFramerule + Number(delay)) * frameruleFrames;
 
-    const setFrV = (v) => setFr(Math.max(0, Math.min(999999, v)));
-    const setDelayV = (v) => setDelay(Math.max(0, Math.min(9999, v)));
+    const setFrV = (v) => setFr(Math.max(0, Math.min(999999, v | 0)));
+    const setDelayV = (v) => setDelay(Math.max(0, Math.min(9999, v | 0)));
     const reducePage = v => setPage(ofs => Math.max(-9999, ofs - 1));
     const increasePage = v => setPage(ofs => Math.min(9999, ofs + 1));
 
